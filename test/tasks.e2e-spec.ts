@@ -9,7 +9,9 @@ import { AppModule } from './../src/app.module.js';
 process.env.DATA_DIR = mkdtempSync(join(tmpdir(), 'tasks-'));
 
 async function start() {
-  const mod = await Test.createTestingModule({ imports: [AppModule] }).compile();
+  const mod = await Test.createTestingModule({
+    imports: [AppModule],
+  }).compile();
   const app = mod.createNestApplication();
   await app.init();
   return app;
